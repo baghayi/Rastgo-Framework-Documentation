@@ -19,6 +19,8 @@ nav
 	text-align: center;
 	background-color: #636363;
 	height: 23px;
+	width: 900px;
+	position: fixed;
 }
 nav > h3 {
 	display: inline;
@@ -29,6 +31,7 @@ section#content
 {
 	margin-left: 7px;
 	margin-right: 7px;
+	margin-top: 45px;
 }
 
 footer > p
