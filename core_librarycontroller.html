@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>مستندات فریمورک راستگو</title>
+  <meta name="description" content="The documentation of the Rastgo Framework" />
+  <meta name="author" content="Rastgo Framework" />
+
+  <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+  <link href="includes/stylesheet.css" rel="stylesheet" type="text/css" />
+  <script src="includes/javascript.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <div>
+    <header>
+      <h1 id="title" title='LibraryController.php (برای مدیریت کلاس های کتابخانه)'>LibraryController.php (برای مدیریت کلاس های کتابخانه)</h1>
+    </header>
+    
+    <nav>
+      <h3><a href="index.html">صفحه اصلی</a></h3>
+      <h3><a href="library.html">کتابخانه فریمورک</a></h3>
+      <h3><a href="core.html">هسته فریمورک</a></h3>
+      <h3><a href="others.html">بخش های دیگر</a></h3>
+    </nav>
+
+    <section id='content'>
+    	<article>
+			<p>کلاس LibraryController کلاس final هست و برای لود کردن کلاس های کتابخونه فریمورک می شه ازش استفاده کرد.</p>
+			<p>البته کماکان از طریق شیوه قبلی از طریق namespace هاشون هم می شه بطور مستقیم صداشون کرد و ازشون شئ ساخت.</p>
+			<p>و البته همه متدهای این کلاس بصورت static تعریف شده اند.</p>
+			<p>یکی از وظایف کلاس اینه که کلاس های تعریف شده در فایل ini بنام libraryGlobalizing.ini در پوشه config رو در همون ابتدای شروع فریمورک لود بکنه و از طریق پروپرتی (که واسش تعریف شده) کلاس Registry بهش می شه دسترسی داشت.</p>
+			<p>و وظیفه یا روش دومش اینه که کلاس های موجود در کتابخونه، رو در طی توسعه در فریمورک رو می خواهیم رو می تونیم از طریق متد call این کلاس صدا بزنیم.</p>
+			<p>و شئ کلاس LibraryController هم از طریق property بنام lib کلاس Registry قابل دسترس هست.</p>
+			<p>(یک سری توضیحات هم در توضیحات مربوط به interface همین کلاس بنام iLibraryController داده شده که می تونید ازش استفاده کنید. )</p>
+			<br />
+			
+			<h4>متدها</h4>
+			<p class="ltr">* public static function call($libraryName, $constructorsArgument = array())</p>
+			<p>برای لود کردن کلاس مورد نظرمون استفاده می شه.</p>
+			<p>پارامتر اول متد، نام کلاس رو می گیره (نیاز به وارد کردن namepsace کلاس نیست).</p>
+			<p>پارامتر دوم که اختیاری هست، همان پارامتر های مربوط به متد سازده هر کلاسی که صدا می زنید هست و اگه کلاس ای که صدا می زنید متد سازنده نداره و یا متد سازنده داره ولی هیچ پارامتری قبول نمی کنه در نتیجه نیازی به پر کردن این پارامتر دوم نیست.</p>
+			<p>و پارامتر دوم رو باید بصورت آرایه باشه و مقادیر بصورت تعیین شده و به ترتیب به متد سازنده کلاس مربوطه وارد می شه.</p>
+			<p>در صورتی که کلاس مربوط در کتابخونه فریمورک پیدا بشه و شی با موفقیت از ساخته بشه در نهایت شئ همان کلاس صدا زده شده بازگشت داده می شه در غیر اینصورت عدد 0 برگشت داده خواهد شد.</p>
+			<hr />
+			
+			<p class="ltr">* public static function methodExistence($libraryName, $methodName)</p>
+			<p>از این متد برای چک کرن اینکه آیا متد کلاسی وجود خارجی داره (تعریف شده است) یا خیر، استفاده می شه.</p>
+			<p>که پارامتر اول نام کلاس رو وارد می کنید و پارامتر دوم نام متد رو.</p>
+			<p>در صورت وجود متد مقدار 1 بازگشت داده خواهد شد در غیر اینصورت عدد 0 برگشت داده می شه.</p>
+			<hr />
+			
+			<p class="ltr">* public static function libraryExistence($libraryName)</p>
+			<p>توسط این متد می شه چک کرد که آیا کلاس در کتابخونه فریمورک وجود داره یا خیر.</p>
+			<p>و تنها یک پارامتر قبول می کنه که نام کلاس (بدون نیاز به وارد کردن namespace کلاس) رو دریافت می کنه.</p>
+			<hr />
+			
+			<p class="ltr">* public static function classAddress($libraryName)</p>
+			<p>توسط این متد با وارد کردن نام کلاس می شه namespace کامل رو کلاس رو دریافت کرد.</p>
+			<p>تنها یک پارامتر قبول می کنه و باید تنها نام کلاس وارد بشه.</p>
+			<hr />
+			
+			<p class="ltr">* public static function configFileAddress()</p>
+			<p>آدرس کامل فایل libraryGlobalizing.ini که تنظیمات مربوطه درش ذخیره می شه رو برمی گردونه.</p>
+			<hr />
+			
+			<p class="ltr">* public static function parseConfigFile()</p>
+			<p>این متد فایل libraryGlobalizing.ini رو تجزیه می کنه و مقادیر رو بصورت آرایه برگشت می ده.</p>
+			<hr />
+			
+			<p class="ltr">* public static function determineArguments($parsedFileResult)</p>
+			<p>این متد یک پارامتر قبول می کنه و باید خروجی متد parseConfigFile() بهش داده بشه و مقادیری که در فایل تنظیمات در قسمت [Argument:N] تعریف شده اند رو برگشت می ده که این مقادیر رو به پارامتر سازنده کلاسی که قراره لود بشه داده بشه.</p>
+			<hr />
+			
+			<p class="ltr">* public static function globalizeObject()</p>
+			<p>این متد کلاس های تعریف شده در فایل تنظیمات libraryGlobalizing.ini رو بعد از اینکه شئ شون ساخته می شه در پارامتر های تعریف شده در فایل libraryGlobalizing.ini به عنوان property در کلاس Registry ثبت می شه که بشه از این شئ های کلاس ها در طول فریمورک استفاده بشه.</p>
+			<p>مقدار بازگشتی این متد هم شی خود کلاس LibraryController هست.</p>
+			<p>نکته: در حقیقت تنها متدی که برای صدا زدن کلاس ها به کار خواهد رفت و مهمتر از بقیه هست، متد call() هست و دیگر متد ها برای توسعه دهنده شاید کاربردی نباشه، چون از دیگر متد ها خود فریمورک و یا خود کلاس LibraryController استفاده می کنه.</p>
+			<hr />
+			<br />
+			
+			<h4>توضیحات فایل تنظیمات (config/libraryGlobalizing.ini)</h4>
+			<p>وظیفه این فایل تنظیمات، اینه که کلاس هایی که می خواهیم از همون ابتدای شروع فریمورک لود بشن رو لود کنیم و آبجکت های کلاس های مشخص شده رو از طریق property ای از کلاس Registry دریافت کنیم.</p>
+			<p>( که اسم property رو هم تو همون فایل تنظیمات تعیین می کنیم ).</p>
+			<p>برای اطلاعات بیشتر در مورد این فایل تنظیمات به قسمت مربوط به <a href="others_config_libraryGlobalizing_main.html">config/libraryGlobalizing.ini</a> مراجعه کنید.</p>
+    	</article>
+    </section>
+
+    <footer>
+     <p>&copy; Copyright  by Rastgo Framework 2011</p>
+    </footer>
+  </div>
+</body>
+</html>
