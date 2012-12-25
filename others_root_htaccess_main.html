@@ -38,6 +38,10 @@
 			<pre class="ltr">RewriteCond %{REQUEST_FILENAME} !public/</pre>
 			<hr />
 			
+			<p>دستور زیر به این جهت به این فایل افزوده شده که بشه از طریق مخزن از بیرون هم بهش دسترسی داشت و بشه ازش clone  گرفت که جزو فریمورک محسوب نمی شه و می شه حذفش کرد.</p>
+			<pre class="ltr">RewriteCond %{REQUEST_FILENAME} !.git/</pre>
+			<hr />
+			
 			<p>دستور زیر هم می گه که فایل های داخل پوشه ها رو نمایش نده که یکی بخواد بازی کنه با ما و این پوشه ها رو لود کنه خطای 403 می گیره.</p>
 			<pre class="ltr">Options All -Indexes</pre>
 			<hr />
