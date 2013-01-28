@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>مستندات فریمورک راستگو</title>
+  <meta name="description" content="The documentation of the Rastgo Framework" />
+  <meta name="author" content="Rastgo Framework" />
+
+  <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+  <link href="includes/stylesheet.css" rel="stylesheet" type="text/css" />
+  <script src="includes/javascript.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <div>
+    <header>
+      <h1 id="title" title="فایل های تست فریمورک">فایل های تست فریمورک</h1>
+    </header>
+    
+    <nav>
+      <h3><a href="index.html">صفحه اصلی</a></h3>
+      <h3><a href="library.html">کتابخانه فریمورک</a></h3>
+      <h3><a href="core.html">هسته فریمورک</a></h3>
+      <h3><a href="others.html">بخش های دیگر</a></h3>
+    </nav>
+
+    <section id='content'>
+    	<article>
+            <p>این پوشه شامل فایل های تستی که برای بخش های مختلف فریمورک نوشته شدن هست و البته ممکنه فایل های تست برای همه بخش ها نباشه که به مرور زمان تا جایی که امکانش باشه آپدیت خواهند شد.</p>
+            <p>این تست ها توسط phpunit نوشته شدن و نیازه که برای اجراشون phpunit در سیستم نصب باشه.</p>
+            <p>همچنین این تست ها از autoloader مربوط به composer استفاده می کنه تا کلاس ها رو بتونه لود کنه و فایل composer.json هم به همین خاطر داخل پوشه هست که واسه همین خاطر نیازه که composer رو هم نصب داشته باشید که واسه اطلاعات بیشتر به سایت خود composer مراجعه کنید.</p>
+            <p>که با اجرای دستور composer install داخل پوشه Tests می تونید autoloader رو توسط composer درست کرده و در نتیجه فایل های تست برای اجرا شدن آماده هستن.</p>
+            <p>فایل phpunit.xml.dist  هم شامل تنظیمات ای واسه phpunit هست که بتونه autoloader رو که در فایل bootStrap.php لود شده رو لود کنه و همینطور به فایل های تست هم دسترسی داشت باشه که با جرای دستور phpunit داخل پوشه تست، فایل phpunit.xml.dist توسط phpunit خواهند می شه و فایل های تست هم اجرا می شن.</p>
+    	</article>
+    </section>
+
+    <footer>
+     <p>&copy; Copyright  by Rastgo Framework 2011</p>
+    </footer>
+  </div>
+</body>
+</html>
